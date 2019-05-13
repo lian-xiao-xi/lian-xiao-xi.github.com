@@ -106,7 +106,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2103523-0f0f433ca34c6ec7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2103523-d7f09623ee5d1d52.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-05-13T11:21:18.137Z">
+<meta property="og:updated_time" content="2019-05-13T11:26:21.448Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js操作DOM">
 <meta name="twitter:description" content="节点节点类型  每个节点都有一个 nodeType 属性，用于表示节点类型。nodeType 属性返回节点的类型。nodeType 是只读的。常用的节点类型如下图所示（图片摘自MDN） 节点关系 childNodes 属性以 NodeList 对象返回节点的子节点集合。NodeList是一种类数组对象，用于保存一组有序的节点。NodeList 对象是基于 DOM 结构动态执行查询的结果，因此 DO">
@@ -357,7 +357,7 @@
                 
               
 
-              <time title="创建时间：2019-05-13 19:03:34 / 修改时间：19:21:18" itemprop="dateCreated datePublished" datetime="2019-05-13T19:03:34+08:00">2019-05-13</time>
+              <time title="创建时间：2019-05-13 19:03:34 / 修改时间：19:26:21" itemprop="dateCreated datePublished" datetime="2019-05-13T19:03:34+08:00">2019-05-13</time>
             
 
             
@@ -418,7 +418,7 @@
 <li><p>insertBefore( ) 方法用于向 childNodes 列表的特定位置插入一个节点，并返回被插入的节点。这个方法接受两个参数：要插入的节点和作为参照的节点。被插入的节点将变成参照节点的前一个同胞节点（previousSibling）。 若参照节点是null，则 insertBefore( ) 与 appendChild( )执行相同的操作。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 插入到最后一个子节点前面</span></span><br><span class="line">returnedNode = someNode.insertBefore(newNode, someNode.lastChild);</span><br><span class="line">alert(newNode == someNode.childNodes[someNode.childNodes.length<span class="number">-2</span>]); <span class="comment">//ture</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>replaceChild( ) 方法用新节点替换某个子节点,并返回要替换的节点。这个方法接受两个参数：插入的新节点和要替换的节点。  </p>
+<li><p>replaceChild( ) 方法用新节点替换某个子节点,并返回要替换的节点。这个方法接受两个参数：插入的新节点和要替换的节点。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 替换第一个子节点  </span></span><br><span class="line">    <span class="keyword">var</span> returnedNode = someNode.replaceChild(newNode, someNode.firstChild);</span><br><span class="line">  <span class="string">``</span><span class="string">`  </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  &gt; 注意：任何 DOM 节点都不能同时出现在文档的多个位置。所以，如果以上的三个方法中要新插入的节点已经是文档的一部分了，那么这个新插入的节点将从原来的位置转移到新位置。  </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">- removeChild( ) 方法用于移除节点。这个方法接受一个参数：要移除的节点。  </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  `</span><span class="string">``</span> javascript</span><br><span class="line">    <span class="comment">// 移除第一个子节点  </span></span><br><span class="line">    <span class="keyword">var</span> formerFirstChild = someNode.removeChild(someNode.firstChild);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>ChildNode.remove() 方法把调用节点元素ChildNode从它所属的DOM树中删除。</p>
