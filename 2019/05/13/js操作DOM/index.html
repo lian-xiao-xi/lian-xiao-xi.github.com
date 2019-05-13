@@ -96,16 +96,21 @@
 
 
 
-  <meta name="description" content="一个即将转后台的前端">
-<meta property="og:type" content="website">
-<meta property="og:title" content="游乐场">
-<meta property="og:url" content="https://samiger.cn/index.html">
+  <meta name="description" content="节点节点类型  每个节点都有一个 nodeType 属性，用于表示节点类型。nodeType 属性返回节点的类型。nodeType 是只读的。常用的节点类型如下图所示（图片摘自MDN） 节点关系 childNodes 属性以 NodeList 对象返回节点的子节点集合。NodeList是一种类数组对象，用于保存一组有序的节点。NodeList 对象是基于 DOM 结构动态执行查询的结果，因此 DO">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js操作DOM">
+<meta property="og:url" content="https://samiger.cn/2019/05/13/js操作DOM/index.html">
 <meta property="og:site_name" content="游乐场">
-<meta property="og:description" content="一个即将转后台的前端">
+<meta property="og:description" content="节点节点类型  每个节点都有一个 nodeType 属性，用于表示节点类型。nodeType 属性返回节点的类型。nodeType 是只读的。常用的节点类型如下图所示（图片摘自MDN） 节点关系 childNodes 属性以 NodeList 对象返回节点的子节点集合。NodeList是一种类数组对象，用于保存一组有序的节点。NodeList 对象是基于 DOM 结构动态执行查询的结果，因此 DO">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2103523-0f0f433ca34c6ec7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2103523-d7f09623ee5d1d52.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-05-13T11:21:18.137Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="游乐场">
-<meta name="twitter:description" content="一个即将转后台的前端">
+<meta name="twitter:title" content="js操作DOM">
+<meta name="twitter:description" content="节点节点类型  每个节点都有一个 nodeType 属性，用于表示节点类型。nodeType 属性返回节点的类型。nodeType 是只读的。常用的节点类型如下图所示（图片摘自MDN） 节点关系 childNodes 属性以 NodeList 对象返回节点的子节点集合。NodeList是一种类数组对象，用于保存一组有序的节点。NodeList 对象是基于 DOM 结构动态执行查询的结果，因此 DO">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2103523-0f0f433ca34c6ec7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -113,7 +118,7 @@
 
   
   
-  <link rel="canonical" href="https://samiger.cn/">
+  <link rel="canonical" href="https://samiger.cn/2019/05/13/js操作DOM/">
 
 
 
@@ -123,7 +128,7 @@
   };
 </script>
 
-  <title>游乐场</title>
+  <title>js操作DOM | 游乐场</title>
   
 
 
@@ -171,8 +176,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,7 +218,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -293,9 +297,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -327,10 +331,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/05/13/js操作DOM/" class="post-title-link" itemprop="url">js操作DOM</a>
+          <h1 class="post-title" itemprop="name headline">js操作DOM
+
               
             
           </h1>
@@ -394,9 +396,7 @@
       
 
       
-        
-          
-            <h2 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h2><h3 id="节点类型"><a href="#节点类型" class="headerlink" title="节点类型"></a>节点类型</h3><p>  每个节点都有一个 nodeType 属性，用于表示节点类型。nodeType 属性返回节点的类型。nodeType 是只读的。常用的节点类型如下图所示（图片摘自<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType" target="_blank" rel="noopener">MDN</a>）<br><img src="https://upload-images.jianshu.io/upload_images/2103523-0f0f433ca34c6ec7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="nodetype.jpg"></p>
+        <h2 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h2><h3 id="节点类型"><a href="#节点类型" class="headerlink" title="节点类型"></a>节点类型</h3><p>  每个节点都有一个 nodeType 属性，用于表示节点类型。nodeType 属性返回节点的类型。nodeType 是只读的。常用的节点类型如下图所示（图片摘自<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType" target="_blank" rel="noopener">MDN</a>）<br><img src="https://upload-images.jianshu.io/upload_images/2103523-0f0f433ca34c6ec7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="nodetype.jpg"></p>
 <h3 id="节点关系"><a href="#节点关系" class="headerlink" title="节点关系"></a>节点关系</h3><ul>
 <li><p>childNodes 属性以 NodeList 对象返回节点的子节点集合。NodeList是一种类数组对象，用于保存一组有序的节点。NodeList 对象是基于 DOM 结构动态执行查询的结果，因此 DOM 结构的变化能够自动反映在 NodeList 对象中。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> firstChild = someNode.childNodes[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> len = someNode.length;</span><br></pre></td></tr></table></figure>
@@ -551,8 +551,6 @@
 <p>注意： 计算的样式是只读的；计算的样式包含浏览器的默认样式。</p>
 </blockquote>
 
-          
-        
       
     </div>
 
@@ -573,14 +571,20 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -590,14 +594,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -617,8 +622,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -692,6 +706,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#节点"><span class="nav-number">1.</span> <span class="nav-text">节点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#节点类型"><span class="nav-number">1.1.</span> <span class="nav-text">节点类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#节点关系"><span class="nav-number">1.2.</span> <span class="nav-text">节点关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作节点"><span class="nav-number">1.3.</span> <span class="nav-text">操作节点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#元素"><span class="nav-number">2.</span> <span class="nav-text">元素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-nodeName-或-tagName-属性访问元素的标签名。"><span class="nav-number">2.1.</span> <span class="nav-text">通过 nodeName 或 tagName 属性访问元素的标签名。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#每个HTML-元素都有下列属性：-id-title-dir-dir-语言的方向-className"><span class="nav-number">2.2.</span> <span class="nav-text">每个HTML 元素都有下列属性： id, title, dir, dir(语言的方向), className</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入标记"><span class="nav-number">2.3.</span> <span class="nav-text">插入标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入文本"><span class="nav-number">2.4.</span> <span class="nav-text">插入文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素属性"><span class="nav-number">2.5.</span> <span class="nav-text">元素属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建元素"><span class="nav-number">2.6.</span> <span class="nav-text">创建元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取对元素的引用"><span class="nav-number">2.7.</span> <span class="nav-text">获取对元素的引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素关系"><span class="nav-number">2.8.</span> <span class="nav-text">元素关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作元素"><span class="nav-number">2.9.</span> <span class="nav-text">操作元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素样式"><span class="nav-number">2.10.</span> <span class="nav-text">元素样式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本"><span class="nav-number">3.</span> <span class="nav-text">文本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#操作文本"><span class="nav-number">3.1.</span> <span class="nav-text">操作文本</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#样式"><span class="nav-number">4.</span> <span class="nav-text">样式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-style-对象获取并操作元素的内联样式"><span class="nav-number">4.1.</span> <span class="nav-text">通过 style 对象获取并操作元素的内联样式</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -821,6 +852,10 @@
 
 
   
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
 
   
 
@@ -836,6 +871,8 @@
 
   
 
+
+  
 
 
   
