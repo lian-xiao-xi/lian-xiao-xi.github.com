@@ -477,44 +477,22 @@
       
         
           
-            <p>每个网页都可以看成是由一层一层页面堆叠起来的，如下图所示。</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2103523-c7c445ec8e5b77b1.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="元素堆叠"><br>把元素往 Z 轴方向移了一层，元素将脱离普通流，不再占据原本文档流那层的空间，还会覆盖下层的元素。</p>
-<ul>
-<li>相对定位（设置了 position:relative 的元素）<br>相对定位的元素依然在普通流中，可以通过 left right 等属性相对于以前位置移动元素，偏移前的位置仍然保留（即同一文档流的其他元素无法占据原位置）。</li>
-<li>绝对定位（设置了 position: absolute 或 fixed  的元素）<ol>
-<li>绝对定位的元素将脱离文档流，不再占据原本文档流那层的空间；</li>
-<li>绝对定位的元素会让元素变成行内块状元素，相当于给该元素设置了 display: inline-block；</li>
-<li>设置了  position: absolute 的绝对定位元素在定位时将忽略其相对定位的元素的 padding。</li>
-<li>设置了  position: absolute 的绝对定位元素设置的百分比的宽和高将针对其相对于定位的元素进行计算。</li>
-</ol>
-</li>
-</ul>
-<blockquote>
-<p>应用了 position: relative/absolute/fixed 的定位元素，margin 属性仍然有效。</p>
-</blockquote>
-<ul>
-<li><p>浮动（设置了 float : left/right 的元素）</p>
-<ol>
-<li>浮动元素会让父元素的高度缺失。</li>
-<li>浮动就是个带有方位的 display:inline-block 属性。</li>
-</ol>
-</li>
-<li><p>同时设置了浮动和定位：</p>
-<ol>
-<li>元素同时应用了 position: relative（top / left / bottom / right）和  float: left/right  属性后，则元素先浮动到相应的位置，然后再根据（top / left / bottom / right）所设置的距离来发生偏移；父元素仍无法获得此元素的高度；</li>
-<li>元素同时应用了 position: absolute 和 float: right/left 属性，则 float 失效。</li>
-<li>第一个元素应用了 position 之后会覆盖着接下来的 float: right/left 元素（如果两个元素所处的位置相同）。只有将 float 的元素的 position 设置成 relative 同时并设置较大得 z-index 值才能覆盖处于同一位置的 position 元素。</li>
-</ol>
-</li>
-</ul>
-<blockquote>
-<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ul>
-<li>position: absolute/fixed 和 float: left/right 都会让元素 inline-block 化。</li>
-<li>float: left/right 致使父元素高度塌陷；position: absolute 致使父元素高度、宽度都塌陷（即脱离文档流）</li>
-</ul>
-</blockquote>
+            <p>
+              每个网页都可以看成是由一层一层页面堆叠起来的，如下图所示。
+把元素往 Z 轴方向移了一层，元素将脱离普通流，不再占据原本文档流那层的空间，还会覆盖下层的元素。
 
+相对定位（设置了 position:relative 的元素）相对定位的元素依然在普通流中，可以通过 left right 等属性相对于以
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/14/css布局-浮动与定位/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -614,7 +592,7 @@
                 
               
 
-              <time title="创建时间：2019-05-14 20:10:14 / 修改时间：20:23:38" itemprop="dateCreated datePublished" datetime="2019-05-14T20:10:14+08:00">2019-05-14</time>
+              <time title="创建时间：2019-05-14 20:10:14 / 修改时间：20:54:51" itemprop="dateCreated datePublished" datetime="2019-05-14T20:10:14+08:00">2019-05-14</time>
             
 
             
@@ -673,68 +651,23 @@
       
         
           
-            <h2 id="事件流"><a href="#事件流" class="headerlink" title="事件流"></a>事件流</h2><p>事件流描述的是从页面中接收事件的顺序。<br>事件流包括三个阶段：事件捕获阶段，处于目标阶段，事件冒泡阶段。</p>
-<ul>
-<li><p>事件冒泡<br>事件冒泡，即事件开始时由最具体的元素接收，然后逐级向上传播到较为不具体的节点（文档节点）。</p>
-</li>
-<li><p>事件捕获<br>事件捕获的思想是不太具体的节点应该更早接收到事件，而最具体的节点应该最后接收到事件。<br>事件捕获的用意在于在事件到达预定目标之前捕获它。</p>
-</li>
-</ul>
-<blockquote>
-<p>事件捕获一般只有在某些特殊需要时才会使用。</p>
-</blockquote>
-<h2 id="事件处理程序"><a href="#事件处理程序" class="headerlink" title="事件处理程序"></a>事件处理程序</h2><p>事件就是用户或浏览器执行的某种动作，如 click、mouseover 和 load 等，都是事件名。<br>事件处理程序是响应某个事件的函数，事件处理程序的名字以“on”开头，因此 click 的事件处理程序就是 onclick。</p>
-<h3 id="为事件指定处理程序的方式有下面几种："><a href="#为事件指定处理程序的方式有下面几种：" class="headerlink" title="为事件指定处理程序的方式有下面几种："></a>为事件指定处理程序的方式有下面几种：</h3><ul>
-<li><p>HTML 事件处理程序</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"click me"</span> <span class="attr">onclick</span>=<span class="string">"alert('hello')"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">id</span>=<span class="string">"mybtn"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">onclick</span>=<span class="string">"sayHi()"</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    function sayHi() &#123;</span></span><br><span class="line"><span class="undefined">      alert("Hi");</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined">  </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>以上面的例子来说明，假如 sayHi() 函数是在按钮下方、页面最底部定义的。若用户在页面解析 sayHi() 函数之前就点击了按钮，就会引发错误。<br><strong>为此，很多 HTML 事件处理程序都会被封装在一个 try-catch 块中，以免错误不会浮出水面。</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span></span></span><br><span class="line"><span class="tag">  <span class="attr">type</span>=<span class="string">"button"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">id</span>=<span class="string">"mybtn"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">value</span>=<span class="string">"username"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">onclick</span>=<span class="string">"try&#123;sayHi();&#125;catch(ex)&#123; &#125;"</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line">  按钮</span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>通过 HTML 事件处理程序的最大缺点就是 HTML 与 JavaScript 代码紧密耦合，不利于后期维护。</p>
-</blockquote>
-</li>
-<li><p>DOM0 级事件处理程序</p>
-<blockquote>
-<p>使用 DOM0 级方法指定的事件处理程序在元素的作用域中运行，换句话说，程序中的 this 引用当前元素。</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">"button"</span> <span class="attr">id</span>=<span class="string">"mybtn"</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span>;</span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">"mybtn"</span>);</span><br><span class="line">btn.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(<span class="keyword">this</span>.id);</span><br><span class="line">&#125;; <span class="comment">// "mybtn"</span></span><br></pre></td></tr></table></figure>
-<p><strong>删除通过上面两种方法方法指定的事件处理程序：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">btn.onclick = <span class="literal">null</span>; <span class="comment">// 删除事件处理程序</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>DOM2 级事件处理程序</p>
-<ol>
-<li>添加事件处理程序： addEventListener() 方法</li>
-<li>删除事件处理程序： removeEventListener() 方法</li>
-</ol>
-<p>这两个方法都接受 3 个参数：要处理的事件名，作为事件处理程序的函数和一个布尔值（true 表示在事件捕获阶段调用事件处理程序，false 表示在冒泡阶段调用事件处理程序）。<br> 通过 addEventListener() 添加的事件处理程序只能通过 removeEventListener() 移除；移除时传入的参数与添加事件处理程序时使用的参数相同，所以通过 addEventListener() 添加的匿名函数将无法移除。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(<span class="keyword">this</span>.id);</span><br><span class="line">&#125;</span><br><span class="line">btn.addEventListener(<span class="string">"click"</span>, fun, <span class="literal">false</span>);</span><br><span class="line">btn.removeEventListener(<span class="string">"click"</span>, fun, <span class="literal">false</span>);</span><br><span class="line">btn.addEventListener(</span><br><span class="line">  <span class="string">"click"</span>,</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"hello world"</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">false</span></span><br><span class="line">);</span><br><span class="line">btn.removeEventListener(</span><br><span class="line">  <span class="string">"click"</span>,</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    alert(<span class="string">"hello world"</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="literal">false</span></span><br><span class="line">); <span class="comment">// 无法移除</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>IE 事件处理程序</p>
-<blockquote>
-<p>IE8 及更早版本只支持事件冒泡。</p>
-</blockquote>
-<ol>
-<li>添加事件处理程序： attachEvent() 方法</li>
-<li><p>删除事件处理程序： detachEvent() 方法</p>
-<blockquote>
-<p>使用 attachEvent() 方法指定的事件处理程序不是按照他们添加的顺序执行，而是以相反的顺序被执行。</p>
-</blockquote>
-<p>这两个方法都接受两个参数：<em>事件处理程序名称（而非事件的名称）</em>，作为事件处理程序的函数。<br>与上述 DOM 方法一样，添加的匿名函数将无法移除。</p>
-</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fun</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(<span class="keyword">this</span>.id);</span><br><span class="line">&#125;</span><br><span class="line">btn.attachEvent(<span class="string">"onclick"</span>, fun); <span class="comment">// 注意这里的第一个参数是“onclick”，而不是“click”</span></span><br><span class="line">btn.detachEvent(<span class="string">"onclick"</span>, fun);</span><br><span class="line">btn.attachEvent(<span class="string">"onclick"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(<span class="string">"hello world"</span>);</span><br><span class="line">&#125;);</span><br><span class="line">btn.attachEvent(<span class="string">"onclick"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(<span class="string">"hello world"</span>);</span><br><span class="line">&#125;); <span class="comment">// 无法移除</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>使用 attachEvent() 方法指定的事件处理程序在全局作用域中运行，<br>换句话说，程序中的 this 等于 window 。例如下面的例子：</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">btn.attachEvent(<span class="string">"onclick"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  alert(<span class="keyword">this</span> === <span class="built_in">window</span>); <span class="comment">// true</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>跨浏览器的事件处理程序</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 跨浏览器的事件处理程序</span></span><br><span class="line"><span class="keyword">const</span> EventUtil = &#123;</span><br><span class="line">  addHandler: <span class="function"><span class="keyword">function</span>(<span class="params">ele, type, handler</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (ele.addEventListener) &#123;</span><br><span class="line">      ele.addEventListener(type, handler, <span class="literal">false</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ele.attachEvent) &#123;</span><br><span class="line">      ele.attachEvent(<span class="string">"on"</span> + type, handler);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      ele[<span class="string">"on"</span> + type] = handler;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  removeHandler: <span class="function"><span class="keyword">function</span>(<span class="params">ele, type, handler</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (ele.removeEventListener) &#123;</span><br><span class="line">      ele.removeEventListener(type, handler, <span class="literal">false</span>);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (ele.detachEvent) &#123;</span><br><span class="line">      ele.detachEvent(<span class="string">"on"</span> + type, handler);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      ele[<span class="string">"on"</span> + type] = <span class="literal">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  getEvent: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> event ? event : <span class="built_in">window</span>.event;</span><br><span class="line">  &#125;,</span><br><span class="line">  getTarget: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> event.target || event.srcElement;</span><br><span class="line">  &#125;,</span><br><span class="line">  preventDefault: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (event.preventDefault) &#123;</span><br><span class="line">      event.preventDefault();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      event.returnValue = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  stopPropagation: <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (event.stopPropagation) &#123;</span><br><span class="line">      event.stopPropagation();</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      event.cancelBubble = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+            <p>
+              事件流事件流描述的是从页面中接收事件的顺序。事件流包括三个阶段：事件捕获阶段，处于目标阶段，事件冒泡阶段。
 
+事件冒泡事件冒泡，即事件开始时由最具体的元素接收，然后逐级向上传播到较为不具体的节点（文档节点）。
+
+事件捕获事件捕获的思想是不太具体的节点应该更早接收到事件，而最具体的节点应该最后接收到事
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/14/js事件/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
@@ -905,154 +838,21 @@
       
         
           
-            <h2 id="节点"><a href="#节点" class="headerlink" title="节点"></a>节点</h2><h3 id="节点类型"><a href="#节点类型" class="headerlink" title="节点类型"></a>节点类型</h3><p>每个节点都有一个 nodeType 属性，用于表示节点类型。nodeType 属性返回节点的类型。nodeType 是只读的。常用的节点类型如下图所示（图片摘自<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Node/nodeType" target="_blank" rel="noopener">MDN</a>）<br><img src="https://upload-images.jianshu.io/upload_images/2103523-0f0f433ca34c6ec7.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="nodetype.jpg"></p>
-<h3 id="节点关系"><a href="#节点关系" class="headerlink" title="节点关系"></a>节点关系</h3><ul>
-<li><p>childNodes 属性以 NodeList 对象返回节点的子节点集合。NodeList 是一种类数组对象，用于保存一组有序的节点。NodeList 对象是基于 DOM 结构动态执行查询的结果，因此 DOM 结构的变化能够自动反映在 NodeList 对象中。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> firstChild = someNode.childNodes[<span class="number">0</span>];</span><br><span class="line"><span class="keyword">var</span> len = someNode.length;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>firstChild 属性和 lastChild 属性分别返回指定节点的第一个和最后一个子节点。</p>
-</li>
-<li><p>parentNode 属性返回指定节点的父节点。</p>
-</li>
-<li><p>previousSibling 属性和 nextSibling 属性分别返回指定节点的上一个和下一个同级节点 <img src="http://upload-images.jianshu.io/upload_images/2103523-d7f09623ee5d1d52.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="node.png"></p>
-</li>
-</ul>
-<blockquote>
-<p>Node.contains(otherNode) 来表示传入的节点是否为该节点的后代节点 Node.compareDocumentPosition(otherNode ) 方法用于比较当前节点与文档中的另一个节点的位置关系 Node.hasChildNodes() 方法用于判断当前节点是否有子节点，返回一个布尔值</p>
-</blockquote>
-<h3 id="操作节点"><a href="#操作节点" class="headerlink" title="操作节点"></a>操作节点</h3><ul>
-<li><p>appendChild() 方法用于向 childNodes 列表的末尾插入一个节点。添加节点后，相关节点 DOM 结构得到更新，更新完成后返回新增的节点。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// someNode 有多个子节点</span></span><br><span class="line"><span class="keyword">var</span> returnedNode = someNode.appendChild(someNode.firstChild);</span><br><span class="line">alert((returnedNode = someNode.firstChild)); <span class="comment">//false</span></span><br><span class="line">alert((returnedNode = someNode.lastChild)); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>insertBefore() 方法用于向 childNodes 列表的特定位置插入一个节点，并返回被插入的节点。这个方法接受两个参数：要插入的节点和作为参照的节点。被插入的节点将变成参照节点的前一个同胞节点（previousSibling）。 若参照节点是 null，则 insertBefore() 与 appendChild()执行相同的操作。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 插入到最后一个子节点前面</span></span><br><span class="line">returnedNode = someNode.insertBefore(newNode, someNode.lastChild);</span><br><span class="line">alert(newNode == someNode.childNodes[someNode.childNodes.length - <span class="number">2</span>]); <span class="comment">//ture</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>replaceChild() 方法用新节点替换某个子节点,并返回要替换的节点。这个方法接受两个参数：插入的新节点和要替换的节点。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 替换第一个子节点</span></span><br><span class="line"><span class="keyword">var</span> returnedNode = someNode.replaceChild(newNode, someNode.firstChild);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：任何 DOM 节点都不能同时出现在文档的多个位置。所以，如果以上的三个方法中要新插入的节点已经是文档的一部分了，那么这个新插入的节点将从原来的位置转移到新位置。</p>
-</blockquote>
-</li>
-<li><p>removeChild() 方法用于移除节点。这个方法接受一个参数：要移除的节点。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 移除第一个子节点</span></span><br><span class="line"><span class="keyword">var</span> formerFirstChild = someNode.removeChild(someNode.firstChild);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>ChildNode.remove() 方法把调用节点元素 ChildNode 从它所属的 DOM 树中删除。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// id 为 'div-01' 的 div 被删掉了</span></span><br><span class="line"><span class="built_in">document</span>.getElementById(<span class="string">"div-01"</span>).remove();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>cloneNode() 方法用于创建调用这个方法的节点的副本。此方法接受一个布尔值参数，表示是否进行深复制。深复制就是复制节点及其子节点树；浅复制是只复制节点本身。复制后返回的节点副本没有父节点，属于文档中的一个“孤儿”，所以通常还会通过 appendChild()、insertBefore()或 replaceChild() 将它添加到文档中。</p>
-</li>
-<li><p>normalize() 方法；规划化元素内的文本节点。如果在包含一个或多个文本节点的父元素上调用这个方法，则会将所有文本节点合并为一个节点，合并之后的新的文本节点的 nodeValue 等于合并前的每个文本节点的 nodeValue 值拼接起来的值。（浏览器自身永远不会创建相邻的文本节点，这种一个元素包含多个文本节点的情况一般是在操作 DOM 时产生的）</p>
-</li>
-</ul>
-<h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> htmlEle = <span class="built_in">document</span>.documentElemnet; <span class="comment">// 取得对&lt;html&gt;元素的引用</span></span><br><span class="line"><span class="keyword">var</span> bodyEle = <span class="built_in">document</span>.body; <span class="comment">// 取得对&lt;body&gt;元素的引用</span></span><br><span class="line"><span class="keyword">var</span> headEle = <span class="built_in">document</span>.head || <span class="built_in">document</span>.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>]; <span class="comment">//取得对&lt;head&gt;的引用;</span></span><br><span class="line"><span class="keyword">var</span> title = <span class="built_in">document</span>.title; <span class="comment">//取得文档标题</span></span><br><span class="line"><span class="built_in">document</span>.title = <span class="string">"new title"</span>; <span class="comment">//修改当前页面的标题</span></span><br><span class="line"><span class="keyword">var</span> charset = <span class="built_in">document</span>.charset; <span class="comment">// 取得文档中实际使用的字符集</span></span><br><span class="line"><span class="built_in">document</span>.charset = <span class="string">"UTF-8"</span>; <span class="comment">// 修改文档字符集</span></span><br><span class="line"><span class="keyword">var</span> url = <span class="built_in">document</span>.URL; <span class="comment">//取得完整的URL（即地址栏中显示的URL）*只读*</span></span><br><span class="line"><span class="keyword">var</span> domain = <span class="built_in">document</span>.domain; <span class="comment">//取得页面的域名</span></span><br><span class="line"><span class="keyword">var</span> referrer = <span class="built_in">document</span>.referrer; <span class="comment">//取得链接到当前页面的那个页面的URL *只读*</span></span><br><span class="line"><span class="keyword">var</span> doc_state = <span class="built_in">document</span>.readyState; <span class="comment">// 取得文档的当前状态（有两个可能的值：loading 和 complete）*只读*</span></span><br><span class="line"><span class="keyword">var</span> focus_ele = <span class="built_in">document</span>.activeElement; <span class="comment">//取得文档中当前获得焦点的元素 *只读*</span></span><br><span class="line"><span class="keyword">var</span> if_focus = <span class="built_in">document</span>.hasFocus(); <span class="comment">//取得用于检测文档是否获取焦点的布尔值。</span></span><br></pre></td></tr></table></figure>
-<h2 id="元素"><a href="#元素" class="headerlink" title="元素"></a>元素</h2><p>通过 <strong><em>nodeName 或 tagName 属性</em></strong>访问元素的标签名。每个 HTML 元素都有下列属性： <strong><em>id, title, dir, dir(语言的方向), className</em></strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="built_in">document</span>.body.tagName); <span class="comment">// "BODY"</span></span><br></pre></td></tr></table></figure>
-<h3 id="插入标记"><a href="#插入标记" class="headerlink" title="插入标记"></a>插入标记</h3><ul>
-<li><p>innerHTML 属性<br>在<strong><em>读模式</em></strong>下，此属性返回与调用元素的所有子节点（包括元素、注释、文本节点）对应的 HTML 标记。<strong><em>写模式</em></strong>下，innerHTML 会根据指定的值创建新的 DOM 树，然后用这个 DOM 树完全替换调用元素原先的所有子节点。（通过 innerHTML 属性插入的 <code>script</code> 元素不会执行其中的脚本）</p>
-</li>
-<li><p>insertAdjacentHTML( position,text) 方法<br>这个方法接受两个参数：插入位置和要插入的 HTML 文本。第一个参数的可能值为：<strong><em>“beforebegin”,” afterbegin”,”beforeend”,”afterend”</em></strong>。<br>注意: beforebegin 和 afterend 位置,仅在节点在树中且节点具有一个 parent 元素时工作</p>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 作为前一个同辈元素插入</span></span><br><span class="line">element.insertAdjacentHTML(<span class="string">"beforebegin"</span>, <span class="string">"&lt;p&gt;hello world !&lt;/p&gt;"</span>);</span><br><span class="line"><span class="comment">// 插入元素内部的第一个子节点之前。</span></span><br><span class="line">element.insertAdjacentHTML(<span class="string">"afterbegin"</span>, <span class="string">"&lt;p&gt;hello world !&lt;/p&gt;"</span>);</span><br><span class="line"><span class="comment">// 插入元素内部的最后一个子节点之后。</span></span><br><span class="line">element.insertAdjacentHTML(<span class="string">"beforeend"</span>, <span class="string">"&lt;p&gt;hello world !&lt;/p&gt;"</span>);</span><br><span class="line"><span class="comment">// 作为后一个同辈元素插入</span></span><br><span class="line">element.insertAdjacentHTML(<span class="string">"afterend"</span>, <span class="string">"&lt;p&gt;hello world !&lt;/p&gt;"</span>);</span><br></pre></td></tr></table></figure>
-<ul>
-<li>insertAdjacentElement(position, element)<br>这个方法接受两个参数：插入位置和要插入的元素节点,此方法将一个给定的元素节点插入到相对于被调用的元素的给定的一个位置,返回插入的元素，插入失败则返回 null.<br>注意: 当节点处于 DOM 树中而且有一个父元素的时候 beforebegin 和 afterend 操作才能起作用。</li>
-</ul>
-<h3 id="插入文本"><a href="#插入文本" class="headerlink" title="插入文本"></a>插入文本</h3><ul>
-<li><p>textContent 属性<br>Node.textContent 属性可以表示一个节点及其内部节点的文本内容。<br><strong><em>读模式</em></strong>下，textContent 会由浅入深将子文档树中的所有文本拼接起来。<strong><em>写模式</em></strong>下，会删除元素的所有子节点，插入包含相应文本值得文本节点。</p>
-</li>
-<li><p>insertAdjacentText ( position,text) 方法<br>此方法和 insertAdjacentHTML() 方法用法相同，不过是第二个参数只能是纯文本。</p>
-</li>
-</ul>
-<h3 id="元素属性"><a href="#元素属性" class="headerlink" title="元素属性"></a>元素属性</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 以下面这个元素为例 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  <span class="attr">id</span>=<span class="string">"my_div"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">class</span>=<span class="string">"bd"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">title</span>=<span class="string">"body_text"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">my_attr</span>=<span class="string">"hello"</span></span></span><br><span class="line"><span class="tag">  <span class="attr">data-appId</span>=<span class="string">"123"</span></span></span><br><span class="line"><span class="tag">&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.getElementById(<span class="string">"my_div"</span>); <span class="comment">// 取得对上面元素的引用</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>获取元素属性的数量<br>通过元素的 <strong><em>attributes.length 属性</em></strong> 获取属性数量</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> len = div.attributes.lenght;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>删除元素属性<br><strong><em>removeAttribute() 方法</em></strong> 用于彻底删除元素属性;</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">div.removeAttribute(<span class="string">"title"</span>); <span class="comment">//删除 title 属性</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>获取并操作属性<br>方法 1： 通过元素自身直接获取、修改和添加属性</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取元素属性</span></span><br><span class="line"><span class="keyword">var</span> <span class="class"><span class="keyword">class</span> </span>= div.className;</span><br><span class="line"><span class="keyword">var</span> id = div.id;</span><br><span class="line"><span class="comment">// 修改元素属性</span></span><br><span class="line">div.title = <span class="string">"some other text"</span>；</span><br><span class="line"><span class="comment">// 添加元素属性</span></span><br><span class="line">div.lang= <span class="string">"en"</span>;</span><br></pre></td></tr></table></figure>
-<p>方法 2（推荐）： 通过 <strong><em>getAttribute() 方法</em></strong> 获取属性， <strong><em>setAttribute() 方法</em></strong> 修改和添加属性</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取元素属性</span></span><br><span class="line"><span class="keyword">var</span> title = div.getAttribute(<span class="string">"title"</span>);</span><br><span class="line"><span class="keyword">var</span> my_attr = div.getAttribute(<span class="string">"my_attr"</span>);</span><br><span class="line"><span class="comment">// 修改元素属性</span></span><br><span class="line">div.setAttribute(<span class="string">"class"</span>, <span class="string">"ft"</span>);</span><br><span class="line">div.setAttribute(<span class="string">"my_attr"</span>, <span class="string">"hi"</span>);</span><br><span class="line"><span class="comment">// 给添加属性</span></span><br><span class="line">div.setAttribute(<span class="string">"lang"</span>, <span class="string">"en"</span>);</span><br><span class="line">div.setAttribute(<span class="string">"my_name"</span>, <span class="string">"Tom"</span>);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>上述两种方法的区别：方法 2 既可以获取标准的属性还可以获取自定义属性，而方法 1 只能访问标准的属性无法访问自定义属性。</p>
-</blockquote>
-<ul>
-<li>自定义数据属性<br>还可以通过元素的 <strong><em>dataset 属性</em></strong> 来获取和修改自定义属性的值</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> appId = div.dataset.appId; <span class="comment">// 取得自定义属性的值</span></span><br><span class="line">div.dataset.appId = <span class="string">"234"</span>; <span class="comment">// 修改自定义属性的值</span></span><br></pre></td></tr></table></figure>
-<h3 id="创建元素"><a href="#创建元素" class="headerlink" title="创建元素"></a>创建元素</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> div = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>); <span class="comment">// 创建一个&lt;div&gt;元素</span></span><br></pre></td></tr></table></figure>
-<p>由于新创建的元素属于文档中的一个“孤儿”，所以通常还会通过 appendChild()、insertBefore()或 replaceChild() 将它添加到文档中。</p>
-<h3 id="获取对元素的引用"><a href="#获取对元素的引用" class="headerlink" title="获取对元素的引用"></a>获取对元素的引用</h3><ul>
-<li>取得对文档的子元素节点的引用</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> head = <span class="built_in">document</span>.head || <span class="built_in">document</span>.getElementsByTagName(<span class="string">"head"</span>)[<span class="number">0</span>]; <span class="comment">//取得对&lt;head&gt;的引用</span></span><br><span class="line"><span class="keyword">var</span> html = <span class="built_in">document</span>.documentElement; <span class="comment">//取得对&lt;html&gt;的引用</span></span><br><span class="line"><span class="keyword">var</span> body = <span class="built_in">document</span>.body; <span class="comment">//取得对&lt;body&gt;的引用</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>取得对特定的某个或某组元素的引用</li>
-</ul>
-<p><strong><em>getElementById() 方法</em></strong> 无法通过 HTML 元素调用该方法<br><strong><em>getElementsByClassName() 方法</em></strong> 接收一个包含一或多个类名的字符串作为参数，返回带有指定类名的所有元素的 Nodelist 集合。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> eles = <span class="built_in">document</span>.getElementByClassName(<span class="string">"btn banner"</span>); <span class="comment">// 取得所有类中包含“btn”和“banner”的元素</span></span><br></pre></td></tr></table></figure>
-<p><strong><em>getElementsByTagName() 方法</em></strong> 返回带有指定标签名的对象的集合。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> all_ele = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"*"</span>); <span class="comment">//取得文档中的所有元素</span></span><br><span class="line"><span class="keyword">var</span> images = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"img"</span>); <span class="comment">//取得页面中所有的&lt;img&gt;元素</span></span><br><span class="line">alert(images.length); <span class="comment">//输出&lt;img&gt;元素的数量</span></span><br><span class="line">alert(images[<span class="number">0</span>].src); <span class="comment">//输出第一个图片元素的src属性</span></span><br></pre></td></tr></table></figure>
-<p><strong><em>getElementsByName() 方法;</em></strong> 返回带有指定名称的对象的集合，该方法常用于取得单选按钮。无法通过 HTML 元素调用该方法。<br><strong><em>querySelector() 方法</em></strong> querySelector() 方法接收一个 CSS 选择符作为参数，返回与该模式匹配的第一个元素。如果没有找到匹配的元素，则返回 null</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> p_first = <span class="built_in">document</span>.querySelector(<span class="string">"p"</span>); <span class="comment">//获取文档中第一个&lt;p&gt;  元素</span></span><br><span class="line"><span class="keyword">var</span> example = <span class="built_in">document</span>.querySelector(<span class="string">".example"</span>); <span class="comment">// 获取文档中 class="example" 的第一个元素</span></span><br><span class="line"><span class="keyword">var</span> p_example = <span class="built_in">document</span>.querySelector(<span class="string">"p.example"</span>); <span class="comment">//获取文档中 class="example" 的第一个&lt;p&gt;元素</span></span><br><span class="line"><span class="keyword">var</span> a_target = <span class="built_in">document</span>.querySelector(<span class="string">"a[target]"</span>); <span class="comment">// 获取文档中有"target"属性的第一个&lt;a&gt;元素</span></span><br><span class="line"><span class="keyword">var</span> p_em = <span class="built_in">document</span>.querySelector(<span class="string">"p em"</span>); <span class="comment">// 获取文档中第一个&lt;p&gt;元素内的第一个&lt;em&gt;元素</span></span><br></pre></td></tr></table></figure>
-<p><strong><em>querySelectorAll() 方法</em></strong> querySelectorAll() 方法接收一个 CSS 选择符作为参数，返回与该模式匹配的所有元素的集合。</p>
-<h3 id="元素关系"><a href="#元素关系" class="headerlink" title="元素关系"></a>元素关系</h3><ul>
-<li><strong><em>children 属性</em></strong> 元素的 children 属性中只包含元素中同样还是元素的子节点；childNodes 的元素版。</li>
-<li><strong><em>childElementCount 属性</em></strong> 返回子元素（不包括注释和文本节点）的个数</li>
-<li><strong><em>firstElementChild 属性</em></strong> 指向第一个子元素；firstChild 的元素版</li>
-<li><strong><em>lastElementChild 属性</em></strong>指向最后一个子元素；lastChild 的元素版</li>
-<li><strong><em>previousElementSibling 属性</em></strong>指向前一个同级元素；previousSibling 的元素版</li>
-<li><strong><em>nextElementSibling 属性</em></strong>指向后一个同级元素；nextSibling 的元素版</li>
-<li><strong><em>parentElement 属性</em></strong> 返回当前节点的父元素节点,如果该元素没有父节点,或者父节点不是一个元素节点.则 返回 null</li>
-</ul>
-<h3 id="操作元素"><a href="#操作元素" class="headerlink" title="操作元素"></a>操作元素</h3><ul>
-<li><strong><em>hasFocus() 方法</em></strong> 返回布尔值，用于检测文档(或文档内的任一元素)是否获得焦点。</li>
-<li><strong><em>matchesSelector() 方法</em></strong> 接收一个 CSS 选择符作为参数，如果调用函数与该选择符匹配，返回 true；否则，返回 false。</li>
-</ul>
-<h3 id="元素样式"><a href="#元素样式" class="headerlink" title="元素样式"></a>元素样式</h3><p><strong>classList 属性</strong>返回元素的 class 类名列表集合，返回的列表集合也有一个 length 属性来表示类的个数，该属性用于在元素中添加，移除及切换 CSS 类。classList 属性是只读的，但可以使用下面的方法修改它。</p>
-<ul>
-<li>add(value): 将给定的字符串值添加到列表中。如果值已经存在，则不添加。</li>
-<li>contains(value): 表示列表中是否存在给定的值，如果存在则返回 true，否则返回 false。</li>
-<li>remove(value): 从列表中删除给定的字符串。</li>
-<li>toggle(value): 如果列表中已经存在给定的值则删除它；如果列表中没有给定的值则添加它。</li>
-</ul>
-<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><ul>
-<li>通过 <strong><em>nodeValue 或 data 属性</em></strong> 获取文本节点的内容。</li>
-<li>通过 <strong><em>length 属性</em></strong> 获取文本节点中字符的数目。</li>
-<li>使用 <strong><em>document.createTextNode()</em></strong> 创建新文本节点</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建一个&lt;div&gt;元素并向其中添加一个文本节点</span></span><br><span class="line"><span class="keyword">var</span> ele = <span class="built_in">document</span>.createElement(<span class="string">"div"</span>);</span><br><span class="line">ele.className = <span class="string">"message"</span>;</span><br><span class="line"><span class="keyword">var</span> text = <span class="built_in">document</span>.createTextNode(<span class="string">"hello world"</span>);</span><br><span class="line">ele.appendChild(text);</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(ele);</span><br></pre></td></tr></table></figure>
-<h3 id="操作文本"><a href="#操作文本" class="headerlink" title="操作文本"></a>操作文本</h3><ul>
-<li><strong><em>appendData(text):</em></strong> 将 text 添加到节点的末尾。</li>
-<li><strong><em>deleteDate(offset, count):</em></strong> 从 offset 指定的位置开始删除 count 个字符。</li>
-<li><strong><em>insertData(offset, text):</em></strong> 在 offset 指定的位置插入 text。</li>
-<li><strong><em>replaceData(offset, count, text):</em></strong> 用 text 替换从 offset 指定的位置开始到 offset+count 为止处的文本。</li>
-<li><strong><em>substringData(offset, count):</em></strong> 提取从 offset 指定的位置开始到 offset+count 为止处的字符串。</li>
-<li><strong><em>splitText(offset):</em></strong> 从 offset 指定的位置将当前文本节点分成两个文本节点。</li>
-</ul>
-<blockquote>
-<p>分割文本节点是从文本节点中提取数据的一种常用的 DOM 技术。</p>
-</blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 以上面创建的&lt;div&gt;元素为例</span></span><br><span class="line"><span class="comment">// 分割文本节点</span></span><br><span class="line"><span class="keyword">var</span> newNode = ele.firstChild.splitText(<span class="number">5</span>);</span><br><span class="line">alert(ele.firstChild.nodeValue); <span class="comment">// "hello"</span></span><br><span class="line">alert(newNode.nodeValue); <span class="comment">//" world"</span></span><br><span class="line">alert(ele.childNodes.length); <span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
-<h2 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h2><h3 id="通过-style-对象获取并操作元素的内联样式"><a href="#通过-style-对象获取并操作元素的内联样式" class="headerlink" title="通过 style 对象获取并操作元素的内联样式"></a>通过 style 对象获取并操作元素的内联样式</h3><p>这个 style 对象包含着通过元素 style 属性设置的内联样式信息，不包含外部样式表或嵌入样式表继承层叠而来的样式。</p>
-<ul>
-<li>style 对象的一些属性和方法 ：</li>
-</ul>
-<p><strong><em>cssText：</em></strong> 读模式下返回 style 属性中 CSS 代码的内部表示；写模式下，赋给 cssText 的值会重写 元素 style 属性的值。<br><strong><em>length：</em></strong> 元素 style 属性中的 css 属性数量<br><strong><em>parentRule：</em></strong> 表示 css 信息的 CSSRule 对象<br><strong><em>getPropertyValue(propertyName)：</em></strong> 返回给定属性的字符串值<br><strong><em>item(index)：</em></strong> 返回给定位置的 css 属性的名称<br><strong><em>removePropertyValue(propertyName)：</em></strong> 从元素 style 属性中删除给定属性<br><strong><em>setProperty(propertyName,value,priority)：</em></strong> 将给定属性设置为相应的值，并加上优先权标志（“important” 或者一个空字符串）</p>
-<ul>
-<li>通过<em>document.defaultView.getComputedStyle()</em>获取元素的计算样式<br>此方法接受两个参数：目标元素和一个伪元素字符串（例如”:after”），如果不需要伪元素信息第二个参数可以为 null。</li>
-</ul>
-<blockquote>
-<p>注意： 计算的样式是只读的；计算的样式包含浏览器的默认样式。</p>
-</blockquote>
-
+            <p>
+              节点节点类型每个节点都有一个 nodeType 属性，用于表示节点类型。nodeType 属性返回节点的类型。nodeType 是只读的。常用的节点类型如下图所示（图片摘自MDN）
+节点关系
+childNodes 属性以 NodeList 对象返回节点的子节点集合。NodeList 是一种类数组对象
+              ...
+            </p>
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/13/js操作DOM/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
